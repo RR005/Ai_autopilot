@@ -127,3 +127,46 @@ pip install -r requirements.txt
   "require_approval": false
 }
 ```
+
+##Example curl Commands
+Use the following curl commands to test the API from the terminal:
+
+###Run full execution immediately:
+
+```bash
+curl -X POST http://localhost:8000/api/v1/execute \
+  -H "Content-Type: application/json" \
+  -d '{
+        "prompt": "Diagnose why Windows Server 2019 VM cpu01 hits 95%+ CPU, generate a PowerShell script to collect perfmon logs, and draft an email to management summarising findings.",
+        "require_approval": false
+      }'
+```
+
+This sends a prompt to the server and immediately executes all relevant agents.
+
+###Run with approval step first:
+
+```bash
+curl -X POST http://localhost:8000/api/v1/execute \
+  -H "Content-Type: application/json" \
+  -d '{
+        "prompt": "Create Azure CLI commands to lock RDP (3389) on my three production VMs to 10.0.0.0/24 and pause for approval before outputting the commands.",
+        "require_approval": true
+      }'
+```
+
+This starts the task but pauses until an explicit approval is submitted.
+
+###Approve a plan (replace TASK_ID):
+
+```bash
+curl -X POST http://localhost:8000/api/v1/plans/TASK_ID/approve
+```
+
+###Check task status (replace TASK_ID):
+
+```bash
+curl http://localhost:8000/api/v1/tasks/TASK_ID
+```
+
+These commands help you simulate full workflow behavior, including approval logic and asynchronous status tracking.
