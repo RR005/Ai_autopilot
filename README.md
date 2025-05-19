@@ -128,10 +128,10 @@ pip install -r requirements.txt
 }
 ```
 
-##Example curl Commands
+## Example curl Commands
 Use the following curl commands to test the API from the terminal:
 
-###Run full execution immediately:
+### Run full execution immediately:
 
 ```bash
 curl -X POST http://localhost:8000/api/v1/execute \
@@ -144,7 +144,7 @@ curl -X POST http://localhost:8000/api/v1/execute \
 
 This sends a prompt to the server and immediately executes all relevant agents.
 
-###Run with approval step first:
+### Run with approval step first:
 
 ```bash
 curl -X POST http://localhost:8000/api/v1/execute \
@@ -157,13 +157,13 @@ curl -X POST http://localhost:8000/api/v1/execute \
 
 This starts the task but pauses until an explicit approval is submitted.
 
-###Approve a plan (replace TASK_ID):
+### Approve a plan (replace TASK_ID):
 
 ```bash
 curl -X POST http://localhost:8000/api/v1/plans/TASK_ID/approve
 ```
 
-###Check task status (replace TASK_ID):
+### Check task status (replace TASK_ID):
 
 ```bash
 curl http://localhost:8000/api/v1/tasks/TASK_ID
