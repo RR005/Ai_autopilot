@@ -1,0 +1,3 @@
+az vm open-port --resource-group YourResourceGroup --name VM1 --port 3389 --priority 100 --action Allow --source-address-prefix 10.0.0.0/24
+az vm open-port --resource-group YourResourceGroup --name VM2 --port 3389 --priority 100 --action Allow --source-address-prefix 10.0.0.0/24
+az vm open-port --resource-group YourResourceGroup --name VM3 --port 3389 --priority 100 --action Allow --source-address-prefix 10.0.0.0/24
