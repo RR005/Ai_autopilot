@@ -85,6 +85,11 @@ flowchart TD
 - **Context Pruning (manual MCP-style)**:
   - In `WriterAgent`, only essential diagnosis and script sections are passed
   - Reduces noise and token bloat
+ 
+- **Note on MCP Server Integration:
+  - The project includes setup for the mcp server (Model Context Protocol dashboard/tracing framework), with components like FastMCP and Context imported.
+  - However, it is not currently active in the main flow.
+  - This is because the project already satisfies the context-pruning goal through manual trimming and structured context blocks in WriterAgent, making the full MCP dashboard integration unnecessary for the current scope.   
 
 ---
 
